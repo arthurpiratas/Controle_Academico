@@ -2,23 +2,23 @@ package Basicas;
 
 public class Disciplina {
 	
-	private int id; 
+	private int codigo; 
 	private String nome; 
 	private String ementa;
 	
 	
-	public Disciplina(int id, String nome, String ementa) {
+	public Disciplina(int codigo, String nome, String ementa) {
 
-		this.id = id;
+		this.codigo = codigo;
 		this.nome = nome;
 		this.ementa = ementa;
 	}
 	
-	public int getId() {
-		return id;
+	public int getcodigo() {
+		return codigo;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setcodigo(int codigo) {
+		this.codigo = codigo;
 	}
 	public String getNome() {
 		return nome;
