@@ -5,6 +5,7 @@ import java.util.Date;
 public class Aluno {
 	
 	private int id; 
+	private String matricula; 
 	private String nome; 
 	private Date dataDeNascimento; 
 	private int perido; 
@@ -12,16 +13,31 @@ public class Aluno {
 	private String senha;
 	
 	
-	public Aluno(int id, String nome, Date dataDeNascimento, int perido, String nomeUsuario, String senha) {
-		super();
+	public Aluno(int id, String nome, Date dataDeNascimento, int perido, String nomeUsuario, String senha, String matricula) {
+		 
 		this.id = id;
 		this.nome = nome;
 		this.dataDeNascimento = dataDeNascimento;
 		this.perido = perido;
 		this.nomeUsuario = nomeUsuario;
 		this.senha = senha;
+		this.matricula = matricula; 
 	}
-		
+	
+	
+	
+	public String getMatricula() {
+		return matricula;
+	}
+
+
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+
+
 	public int getId() {
 		return id;
 	}

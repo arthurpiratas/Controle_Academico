@@ -5,6 +5,8 @@ import Basicas.Rendimento_Escolar;
 import Basicas.Turma;
 
 public class RepositorioRendimentoEscolarArray implements IRepositorioRendimento_Escolar{
+	
+	
 
 	@Override
 	public void insereRendimento(Rendimento_Escolar rendimentoEscolar) {
