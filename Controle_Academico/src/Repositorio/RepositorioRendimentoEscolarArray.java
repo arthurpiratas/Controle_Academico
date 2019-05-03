@@ -6,41 +6,95 @@ import Basicas.Turma;
 
 public class RepositorioRendimentoEscolarArray implements IRepositorioRendimento_Escolar{
 	
+	private Rendimento_Escolar listaRendimentoEscola[]; 
+	private int index; 
+	public final static int tamanhoMaxRedEscol = 1000;
 	
+	
+
+	public RepositorioRendimentoEscolarArray() {
+		
+		this.listaRendimentoEscola = new Rendimento_Escolar[tamanhoMaxRedEscol];
+		this.index = 0;
+	}
+
+	public Rendimento_Escolar[] getListaRendimentoEscola() {
+		return listaRendimentoEscola;
+	}
 
 	@Override
 	public void insereRendimento(Rendimento_Escolar rendimentoEscolar) {
 		// TODO Auto-generated method stub
+		
+		this.listaRendimentoEscola[index] = rendimentoEscolar; 
+		this.index += 1; 
 		
 	}
 
 	@Override
 	public void alteraRendimento(Rendimento_Escolar rendimentoEscolar) {
 		// TODO Auto-generated method stub
-		
+		for (int i = 0; i < index; i++) {
+			if(listaRendimentoEscola[i].getAluno().getMatricula() == rendimentoEscolar.getAluno().getMatricula() && listaRendimentoEscola[i].getTurma().getId() == rendimentoEscolar.getTurma().getId()) {
+				listaRendimentoEscola[i] = rendimentoEscolar; 
+			}
+		}
 	}
 
 	@Override
 	public void removeRendimento(Aluno aluno, Turma turma) {
 		// TODO Auto-generated method stub
-		
+		for (int i = 0; i < index; i++) {
+			if(listaRendimentoEscola[i].getAluno().getMatricula() == aluno.getMatricula() && listaRendimentoEscola[i].getTurma().getId() == turma.getId()) {
+				if(index == 1) {
+					listaRendimentoEscola[i] = null; 
+					index -= 1; 
+				}else {
+					listaRendimentoEscola[i] = listaRendimentoEscola[index-1]; 
+				}
+			}
+		}
 	}
 
 	@Override
 	public Rendimento_Escolar buscaRendimento_Escolar(Aluno aluno, Turma turma) {
 		// TODO Auto-generated method stub
-		return null;
+		Rendimento_Escolar rendimentoEscolar = null; 
+		
+		for (int i = 0; i < index; i++) {
+			if(listaRendimentoEscola[i].getAluno().getMatricula() == aluno.getMatricula() && listaRendimentoEscola[i].getTurma().getId() == turma.getId()) {
+				rendimentoEscolar =  listaRendimentoEscola[i]; 
+				
+			}
+		}
+		
+		return rendimentoEscolar; 
 	}
 
 	@Override
 	public boolean verificaRendimento_Escolar(Aluno aluno, Turma turma) {
 		// TODO Auto-generated method stub
+		
+		for (int i = 0; i < index; i++) {
+			if(listaRendimentoEscola[i].getAluno().getMatricula() == aluno.getMatricula() && listaRendimentoEscola[i].getTurma().getId() == turma.getId()) {
+				return true; 
+				
+			}
+		}
+		
 		return false;
 	}
 
 	@Override
 	public void listaRendimento_EscolarAluno(Aluno aluno) {
 		// TODO Auto-generated method stub
+		
+		for (int i = 0; i < index; i++) {
+			if(listaRendimentoEscola[i].getAluno().getMatricula() == aluno.getMatricula()) {
+				System.out.println("Nome" + listaRendimentoEscola[i].getAluno().getNome() + "Nota 1" + listaRendimentoEscola[i].getNota1());
+				
+			}
+		}
 		
 	}
 
