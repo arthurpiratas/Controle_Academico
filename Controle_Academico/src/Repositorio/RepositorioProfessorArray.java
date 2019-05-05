@@ -1,5 +1,6 @@
 package Repositorio;
 
+
 import Basicas.Professor;
 
 public class RepositorioProfessorArray implements IRepositorioProfessor{
@@ -116,5 +117,34 @@ public class RepositorioProfessorArray implements IRepositorioProfessor{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public boolean verifiaProfessorLogin(String login) {
+		// TODO Auto-generated method stub
+		
+		for (int i = 0; i < index; i++) {
+			if(listaProfessor[index].getNomeUsuario().equals(login)) {
+				return true; 
+			}
+		}
+		
+		return false;
+	}
+
+	@Override
+	public Professor buscaProfessorLogin(String login) {
+		// TODO Auto-generated method stub
+		Professor professor = null; 
+		
+		for (int i = 0; i < index; i++) {
+			if(listaProfessor[index].getNomeUsuario().equals(login)) {
+				professor = listaProfessor[i];
+			}
+		}
+		
+		return professor;
+	}
+
+	
 
 }

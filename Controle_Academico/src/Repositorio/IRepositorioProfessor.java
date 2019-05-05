@@ -1,5 +1,6 @@
 package Repositorio;
 
+import Basicas.Aluno;
 import Basicas.Professor;;
 
 public interface IRepositorioProfessor {
@@ -12,4 +13,6 @@ public interface IRepositorioProfessor {
 	public boolean verificaProfessorExise(String nome); 
 	public void listaProfessors(); 
 	public Professor[] retornaListaProfessor(); 
+	public boolean verifiaProfessorLogin(String login); 
+	public Professor buscaProfessorLogin(String login);
 }

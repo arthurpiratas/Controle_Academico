@@ -101,4 +101,38 @@ public class RepositorioAlunoArray implements IRepositorioAluno{
 		return null;
 	}
 
+
+
+	@Override
+	public boolean verifiaAlunoLogin(String login) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < index; i++) {
+			if(listaAluno[index].getNomeUsuario().equals(login)) {
+				return true; 
+			}
+		}
+		
+		return false;
+	}
+
+
+
+	@Override
+	public Aluno buscaAlunoLogin(String login) {
+		// TODO Auto-generated method stub
+		Aluno aluno = null; 
+		
+		for (int i = 0; i < index; i++) {
+			if(listaAluno[index].getNomeUsuario().equals(login)) {
+				aluno = listaAluno[i];
+			}
+		}
+		
+		return aluno;
+	}
+
+
+
+	
+
 }

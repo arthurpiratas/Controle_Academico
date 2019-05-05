@@ -10,5 +10,7 @@ public interface IRepositorioAluno {
 	public boolean verificaAlunoExise(String matricula); 
 	public void listaAluno(); 
 	public Aluno[] retornaListaAluno(); 
+	public boolean verifiaAlunoLogin(String login); 
+	public Aluno buscaAlunoLogin(String login);
 	
 }
