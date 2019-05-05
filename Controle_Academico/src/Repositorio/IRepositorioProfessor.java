@@ -1,6 +1,6 @@
 package Repositorio;
 
-import Basicas.Aluno;
+
 import Basicas.Professor;;
 
 public interface IRepositorioProfessor {

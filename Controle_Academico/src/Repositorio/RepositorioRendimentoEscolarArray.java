@@ -90,7 +90,7 @@ public class RepositorioRendimentoEscolarArray implements IRepositorioRendimento
 		// TODO Auto-generated method stub
 		
 		for (int i = 0; i < index; i++) {
-			if(listaRendimentoEscola[i].getAluno().getMatricula() == aluno.getMatricula()) {
+			if(listaRendimentoEscola[i].getAluno().getMatricula().equals(aluno.getMatricula())) {
 				System.out.println("Nome" + listaRendimentoEscola[i].getAluno().getNome() + "Nota 1" + listaRendimentoEscola[i].getNota1());
 				
 			}
@@ -101,6 +101,12 @@ public class RepositorioRendimentoEscolarArray implements IRepositorioRendimento
 	@Override
 	public void listaRendimento_EscolarTurma(Turma turma) {
 		// TODO Auto-generated method stub
+		for (int i = 0; i < index; i++) {
+			if(listaRendimentoEscola[i].getTurma().getNome().equals(turma.getNome())) {
+				System.out.println("Nome" + listaRendimentoEscola[i].getAluno().getNome() + "Nota 1" + listaRendimentoEscola[i].getNota1());
+				
+			}
+		}
 		
 	}
 
@@ -114,6 +120,46 @@ public class RepositorioRendimentoEscolarArray implements IRepositorioRendimento
 	public Rendimento_Escolar[] retornaListaRendimento_EscolarTurma(Aluno turma) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public boolean verificaRendimentoEscolarPossuiAluno(Aluno aluno) {
+		// TODO Auto-generated method stub
+		
+		for (int i = 0; i < index; i++) {
+			if(listaRendimentoEscola[i].getAluno().getId() == aluno.getId()) {
+				return true; 
+			}
+		}
+		
+		return false;
+	}
+
+	@Override
+	public boolean verificaRendimentoEscolarPossuiTurma(Turma turma) {
+		// TODO Auto-generated method stub
+		
+		for (int i = 0; i < index; i++) {
+			if(listaRendimentoEscola[i].getTurma().getId() == turma.getId()) {
+				return true; 
+			}
+		}
+		
+		return false;
+	}
+
+	@Override
+	public void removeRendimentoEscolarPorAluno(String matricula) {
+		// TODO Auto-generated method stub
+		
+		
+		
+	}
+
+	@Override
+	public void removeRendimentoEscolarPorTurma(String nome) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

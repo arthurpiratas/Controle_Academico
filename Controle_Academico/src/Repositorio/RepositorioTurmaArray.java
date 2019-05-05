@@ -1,6 +1,8 @@
 package Repositorio;
 
 import Basicas.Aluno;
+import Basicas.Disciplina;
+import Basicas.Professor;
 import Basicas.Turma;
 
 public class RepositorioTurmaArray implements IRepositorioTurma{
@@ -117,6 +119,57 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 		}
 		
 		return listaTurmaAluno;
+	}
+	
+	// Verificação se uma turma possui professores ou disciplina em caso de exclusão de um professor ou disciplina que estão em uma turma
+
+	@Override
+	public boolean verificaDesciplinaPossuiTurma(Disciplina disciplina) {
+		// TODO Auto-generated method stub
+		
+		for (int i = 0; i < index; i++) {
+			if(listaTurma[i].getDisciplina().getcodigo() == disciplina.getcodigo()) {
+				return true; 
+			}
+		}
+		
+		return false;
+	}
+
+	@Override
+	public boolean verificaProfessorPossuiTurma(Professor professor) {
+		// TODO Auto-generated method stub
+		
+		for (int i = 0; i < index; i++) {
+			if(listaTurma[i].getProfessor().getId() == professor.getId()) {
+				return true; 
+			}
+		}
+		
+		return false;
+		
+	}
+
+	@Override
+	public void excluiTurmaPorDisciplina(int codigo) {
+		// TODO Auto-generated method stub
+		
+		for (int i = 0; i < index; i++) {
+			if(listaTurma[i].getDisciplina().getcodigo() == codigo) {
+				removeTurma(listaTurma[i].getNome());
+			}
+		}
+		
+	}
+
+	@Override
+	public void excluiTurmaPorProfessor(int idProfessor) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < index; i++) {
+			if(listaTurma[i].getDisciplina().getcodigo() == idProfessor) {
+				removeTurma(listaTurma[i].getNome());
+			}
+		}
 	}
 
 }

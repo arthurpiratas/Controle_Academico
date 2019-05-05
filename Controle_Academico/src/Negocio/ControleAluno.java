@@ -41,6 +41,17 @@ public class ControleAluno {
 		return false; 
 	}
 	
+	
+	public boolean verificaLoginAlunoExiste(String login) {
+		
+		if(repAluno.verifiaAlunoLogin(login)) {
+			return true; 
+		}
+		
+		return false; 
+	}
+	
+	
 	public Aluno retornaAlunoLogado(String login, String senha) {
 		Aluno aluno = null; 
 		
