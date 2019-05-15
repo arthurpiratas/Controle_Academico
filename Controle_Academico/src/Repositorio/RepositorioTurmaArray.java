@@ -30,8 +30,8 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 	public void alteraTurma(Turma turma) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < index; i++) {
-			if(listaTurma[index].getId() == turma.getId()) {
-				listaTurma[index] = turma; 
+			if(listaTurma[i].getId() == turma.getId()) {
+				listaTurma[i] = turma; 
 			}
 		}
 		
@@ -41,7 +41,7 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 	public void removeTurma(String nome) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < index; i++) {
-			if(listaTurma[index].getNome().equals(nome)) {
+			if(listaTurma[i].getNome().equals(nome)) {
 				if(index == 1) {
 					listaTurma[i] = null; 
 					index -= 1; 
@@ -60,7 +60,7 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 		Turma turma = null; 
 		
 		for (int i = 0; i < index; i++) {
-			if(listaTurma[index].getNome().equals(nome)) {
+			if(listaTurma[i].getNome().equals(nome)) {
 				turma = listaTurma[i]; 
 			}
 		}

@@ -15,7 +15,7 @@ public class ControleTurma {
 		repTurma.insereTurma(turma);
 	}
 	public void alteraTurma(Turma turma) {
-		repTurma.insereTurma(turma);
+		repTurma.alteraTurma(turma);
 	}
 	public void removeTurma(String nome) {
 		repTurma.removeTurma(nome);

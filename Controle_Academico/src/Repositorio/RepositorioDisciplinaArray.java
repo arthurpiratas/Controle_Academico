@@ -29,8 +29,8 @@ public class RepositorioDisciplinaArray implements IRepositorioDisciplina{
 	public void alteraDisciplina(Disciplina disciplina) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < index; i++) {
-			if(listaDisciplina[index].getcodigo() == disciplina.getcodigo()) {
-				listaDisciplina[index] = disciplina; 
+			if(listaDisciplina[i].getcodigo() == disciplina.getcodigo()) {
+				listaDisciplina[i] = disciplina; 
 			}
 		}
 		
@@ -41,7 +41,7 @@ public class RepositorioDisciplinaArray implements IRepositorioDisciplina{
 		// TODO Auto-generated method stub
 		
 		for (int i = 0; i < index; i++) {
-			if(listaDisciplina[index].getcodigo() == codigo) {
+			if(listaDisciplina[i].getcodigo() == codigo) {
 				if(index == 1) {
 					listaDisciplina[i] = null; 
 					index -= 1; 
@@ -63,7 +63,7 @@ public class RepositorioDisciplinaArray implements IRepositorioDisciplina{
 		Disciplina disciplina = null; 
 		
 		for (int i = 0; i < index; i++) {
-			if(listaDisciplina[index].getcodigo() == codigo) {
+			if(listaDisciplina[i].getcodigo() == codigo) {
 				disciplina =  listaDisciplina[i];
 				
 			}
@@ -78,7 +78,7 @@ public class RepositorioDisciplinaArray implements IRepositorioDisciplina{
 		
 		
 		for (int i = 0; i < index; i++) {
-			if(listaDisciplina[index].getNome().equals(nome)) {
+			if(listaDisciplina[i].getNome().equals(nome)) {
 				return true; 
 				
 			}

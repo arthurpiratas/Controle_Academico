@@ -33,8 +33,8 @@ public class RepositorioAlunoArray implements IRepositorioAluno{
 	public void alteraAluno(Aluno aluno) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < index; i++) {
-			if(listaAluno[index].getId() == aluno.getId()) {
-				listaAluno[index] = aluno; 
+			if(listaAluno[i].getId() == aluno.getId()) {
+				listaAluno[i] = aluno; 
 			}
 		}
 		
@@ -45,7 +45,7 @@ public class RepositorioAlunoArray implements IRepositorioAluno{
 		// TODO Auto-generated method stub
 		
 		for (int i = 0; i < index; i++) {
-			if(listaAluno[index].getMatricula().equals(matricula)) {
+			if(listaAluno[i].getMatricula().equals(matricula)) {
 				if(index == 1) {
 					listaAluno[i] = null; 
 					index -= 1; 
@@ -65,7 +65,7 @@ public class RepositorioAlunoArray implements IRepositorioAluno{
 		Aluno aluno = null; 
 		
 		for (int i = 0; i < index; i++) {
-			if(listaAluno[index].getMatricula().equals(matricula)) {
+			if(listaAluno[i].getMatricula().equals(matricula)) {
 				aluno = listaAluno[i]; 
 			}
 		}
@@ -79,7 +79,7 @@ public class RepositorioAlunoArray implements IRepositorioAluno{
 		
 		
 		for (int i = 0; i < index; i++) {
-			if(listaAluno[index].getMatricula().equals(matricula)) {
+			if(listaAluno[i].getMatricula().equals(matricula)) {
 				return true; 
 			}
 		}
@@ -91,7 +91,7 @@ public class RepositorioAlunoArray implements IRepositorioAluno{
 	public void listaAluno() {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < index; i++) {
-			System.out.println("Nom: " + listaAluno[i].getNome() + " Matrícula: " + listaAluno[i].getMatricula());
+			System.out.println("Nom: " + listaAluno[i].getNome() + " Matrícula: " + listaAluno[i].getMatricula() + "  " + this.index);
 		}
 	}
 
@@ -107,7 +107,7 @@ public class RepositorioAlunoArray implements IRepositorioAluno{
 	public boolean verifiaAlunoLogin(String login) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < index; i++) {
-			if(listaAluno[index].getNomeUsuario().equals(login)) {
+			if(listaAluno[i].getNomeUsuario().equals(login)) {
 				return true; 
 			}
 		}
@@ -123,7 +123,7 @@ public class RepositorioAlunoArray implements IRepositorioAluno{
 		Aluno aluno = null; 
 		
 		for (int i = 0; i < index; i++) {
-			if(listaAluno[index].getNomeUsuario().equals(login)) {
+			if(listaAluno[i].getNomeUsuario().equals(login)) {
 				aluno = listaAluno[i];
 			}
 		}

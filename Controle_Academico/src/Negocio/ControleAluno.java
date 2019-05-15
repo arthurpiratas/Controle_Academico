@@ -14,7 +14,7 @@ public class ControleAluno {
 	}
 	
 	public void atualizaAluno(Aluno aluno) {
-			repAluno.insereAluno(aluno);
+			repAluno.alteraAluno(aluno);
 	}
 	
 	public Aluno buscaAluno(String matricula) {

@@ -123,7 +123,7 @@ public class RepositorioProfessorArray implements IRepositorioProfessor{
 		// TODO Auto-generated method stub
 		
 		for (int i = 0; i < index; i++) {
-			if(listaProfessor[index].getNomeUsuario().equals(login)) {
+			if(listaProfessor[i].getNomeUsuario().equals(login)) {
 				return true; 
 			}
 		}
@@ -137,7 +137,7 @@ public class RepositorioProfessorArray implements IRepositorioProfessor{
 		Professor professor = null; 
 		
 		for (int i = 0; i < index; i++) {
-			if(listaProfessor[index].getNomeUsuario().equals(login)) {
+			if(listaProfessor[i].getNomeUsuario().equals(login)) {
 				professor = listaProfessor[i];
 			}
 		}
