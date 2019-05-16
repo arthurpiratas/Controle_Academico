@@ -1,0 +1,8 @@
+O que fazer?	Clases	Função
+Gerador de ID -	       RepositorioADM	     -    geradorIdFuncionario
+Gerador de ID -	       RepositorioAluno	     -    geradorIdAluno
+Gerador de ID -	       RepositorioDisciplina -	  geradorIdDisciplina
+Gerador de ID -	       RepositorioProfessor  - 	  geradoIdProfessor
+Gerador de ID -	       RepositorioTurma	     -    geradorIdTurma
+Gerador de Matrícula - RepositorioAluno	     -    geradorMatriculaAluno
+
