@@ -1,4 +1,6 @@
 package Repositorio;
+import java.util.ArrayList;
+
 import Basicas.Aluno;
 
 public interface IRepositorioAluno {
@@ -9,7 +11,7 @@ public interface IRepositorioAluno {
 	public Aluno buscaAluno(String matricula); 
 	public boolean verificaAlunoExise(String matricula); 
 	public void listaAluno(); 
-	public Aluno[] retornaListaAluno(); 
+	public ArrayList<Aluno> retornaListaAluno(); 
 	public boolean verifiaAlunoLogin(String login); 
 	public Aluno buscaAlunoLogin(String login);
 	

@@ -1,5 +1,7 @@
 package Repositorio;
 
+import java.util.ArrayList;
+
 import Basicas.Administrador;
 
 
@@ -43,12 +45,14 @@ public class RepositorioAdmArray implements IRepositorioAdm{
 		// TODO Auto-generated method stub
 		for (int i = 0; i < index; i++) {
 			if(listaADM[i].getId() == id) {
-				this.listaADM[i] = null; 
-				this.index -= 1;
-			}else {
-				this.listaADM[i] = listaADM[index-1]; 
-				this.index -= 1; 
-			}
+				if(this.index == 1) {
+					this.listaADM[i] = null; 
+					this.index -= 1;
+				}else {
+					this.listaADM[i] = listaADM[index-1]; 
+					this.index -= 1; 
+				}
+			}	
 		}
 	}
 
@@ -117,6 +121,19 @@ public class RepositorioAdmArray implements IRepositorioAdm{
 		
 		
 		return adm;
+	}
+
+	@Override
+	public ArrayList<Administrador> retornaListaAdm() {
+		// TODO Auto-generated method stub
+		
+		ArrayList<Administrador> listaADM = new ArrayList<Administrador>(); 
+		
+		for (int i = 0; i < index; i++) {
+			listaADM.add(this.listaADM[i]); 
+		}
+		
+		return listaADM;
 	}
 
 }

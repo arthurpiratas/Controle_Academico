@@ -2,12 +2,11 @@ package Basicas;
 
 import java.util.Date;
 
-public class Administrador {
+public class Administrador extends Usuario{
 	private int id; 
 	private String nome; 
 	private Date dataDeNascimento; 
-	private String nomeUsuario; 
-	private String senha;
+	
 	
 	public Administrador(int id, String nome, Date dataDeNascimento, String nomeUsuario, String senha) {
 		super();

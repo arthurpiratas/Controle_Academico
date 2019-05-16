@@ -2,6 +2,9 @@ package Negocio;
 
 import Repositorio.RepositorioAlunoArray;
 import Repositorio.IRepositorioAluno;
+
+import java.util.ArrayList;
+
 import Basicas.Aluno;
 
 public class ControleAluno {
@@ -64,6 +67,10 @@ public class ControleAluno {
 	
 	public void listaAlunos() {
 		repAluno.listaAluno();
+	}
+	
+	public ArrayList<Aluno> retornaListaAluno(){
+		return repAluno.retornaListaAluno();
 	}
 
 }

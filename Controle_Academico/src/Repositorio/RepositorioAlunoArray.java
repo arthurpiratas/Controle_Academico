@@ -1,5 +1,7 @@
 package Repositorio;
 
+import java.util.ArrayList;
+
 import Basicas.Aluno;
 
 public class RepositorioAlunoArray implements IRepositorioAluno{
@@ -96,9 +98,16 @@ public class RepositorioAlunoArray implements IRepositorioAluno{
 	}
 
 	@Override
-	public Aluno[] retornaListaAluno() {
+	public ArrayList<Aluno> retornaListaAluno() {
 		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<Aluno> listaAluno = new ArrayList<Aluno>();
+		
+		for (int i = 0; i < index; i++) {
+			listaAluno.add(this.listaAluno[i]); 
+		}
+		
+		return listaAluno;
 	}
 
 

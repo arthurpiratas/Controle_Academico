@@ -2,15 +2,14 @@ package Basicas;
 
 import java.util.Date;
 
-public class Aluno {
+public class Aluno extends Usuario{
 	
 	private int id; 
 	private String matricula; 
 	private String nome; 
 	private Date dataDeNascimento; 
 	private int perido; 
-	private String nomeUsuario; 
-	private String senha;
+	
 	
 	
 	public Aluno(int id, String nome, Date dataDeNascimento, int perido, String nomeUsuario, String senha, String matricula) {

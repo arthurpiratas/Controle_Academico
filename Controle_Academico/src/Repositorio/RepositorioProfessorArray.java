@@ -1,6 +1,8 @@
 package Repositorio;
 
 
+import java.util.ArrayList;
+
 import Basicas.Professor;
 
 public class RepositorioProfessorArray implements IRepositorioProfessor{
@@ -90,11 +92,23 @@ public class RepositorioProfessorArray implements IRepositorioProfessor{
 	}
 
 	@Override
-	public boolean verificaProfessorExise(String nome) {
+	public boolean verificaProfessorExiste(String nome) {
 		// TODO Auto-generated method stub
 		
 		for (int i = 0; i < index; i++) {
 			if(listaProfessor[i].getNome().equals(nome)) {
+				return true;  
+			}
+		}
+		
+		return false;
+	}
+	
+	public boolean verificaProfessorExiste(int id) {
+		// TODO Auto-generated method stub
+		
+		for (int i = 0; i < index; i++) {
+			if(listaProfessor[i].getId() == id) {
 				return true;  
 			}
 		}
@@ -113,9 +127,16 @@ public class RepositorioProfessorArray implements IRepositorioProfessor{
 	}
 
 	@Override
-	public Professor[] retornaListaProfessor() {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<Professor> retornaListaProfessor() {
+		
+		
+		ArrayList<Professor> listaProfessor = new ArrayList<Professor>();
+		
+		for (int i = 0; i < index; i++) {
+			listaProfessor.add(this.listaProfessor[i]);
+		}
+		
+		return listaProfessor;
 	}
 
 	@Override

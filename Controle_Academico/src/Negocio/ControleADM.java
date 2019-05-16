@@ -1,5 +1,7 @@
 package Negocio;
 
+import java.util.ArrayList;
+
 import Basicas.Administrador;
 import Repositorio.IRepositorioAdm;
 import Repositorio.RepositorioAdmArray;
@@ -26,6 +28,12 @@ public class ControleADM {
 	public void listaADM() {
 		repAdm.listaADM();
 	}
+	
+	public boolean verificaLoginExiste(String login) {
+		return repAdm.verifiaADMLogin(login);
+		
+	}
+	
 	public boolean verificaLoginAdm(String login, String senha) {
 		
 		if(repAdm.verifiaADMLogin(login)) {
@@ -45,6 +53,10 @@ public class ControleADM {
 		}
 		
 		return adm; 
+	}
+	
+	public ArrayList<Administrador> retornaListaAdm(){
+		return repAdm.retornaListaAdm();
 	}
 
 }

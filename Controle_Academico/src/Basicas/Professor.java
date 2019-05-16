@@ -2,14 +2,13 @@ package Basicas;
 
 import java.util.Date;
 
-public class Professor {
+public class Professor extends Usuario{
 	
 	private int id; 
 	private String nome; 
 	private String cargo; 
 	private Date dataDeNascimento; 
-	private String nomeUsuario; 
-	private String senha;
+	
 	
 	public Professor(int id, String nome, String cargo, Date dataDeNascimento, String nomeUsuario, String senha) {
 		this.id = id;

@@ -1,5 +1,7 @@
 package Repositorio;
 
+import java.util.ArrayList;
+
 import Basicas.Disciplina;
 
 public interface IRepositorioDisciplina {
@@ -10,6 +12,6 @@ public interface IRepositorioDisciplina {
 	public Disciplina buscaDisciplina(int codigo); 
 	public boolean verificaDisciplinaExise(String nome); 
 	public void listaDisciplinas(); 
-	public Disciplina[] retornaListaDisciplina(); 
+	public ArrayList<Disciplina> retornaListaDisciplina(); 
 	
 }

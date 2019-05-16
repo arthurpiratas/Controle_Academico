@@ -26,6 +26,19 @@ public class Turma {
 		this.disciplina = disciplina; 
 	}
 	
+	public Turma(int id, String nome, Date dataDeNascimento, int capacidadeDaTurma, Disciplina disciplina) {
+		
+		this.id = id;
+		this.nome = nome;
+		this.dataDeNascimento = dataDeNascimento;
+		this.professor = null; 
+		this.capacidadeDaTurma = capacidadeDaTurma;
+		this.alunoTurma = new String[capacidadeDaTurma]; 
+		this.qtdAlunoTurma = 0; 
+		this.disciplina = disciplina; 
+	}
+	
+	
 	
 	public Disciplina getDisciplina() {
 		return disciplina;

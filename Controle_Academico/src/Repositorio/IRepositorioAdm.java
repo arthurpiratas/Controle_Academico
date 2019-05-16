@@ -1,5 +1,7 @@
 package Repositorio;
 
+import java.util.ArrayList;
+
 import Basicas.Administrador;;
 
 public interface IRepositorioAdm {
@@ -12,5 +14,6 @@ public interface IRepositorioAdm {
 	public void listaADM(); 
 	public boolean verifiaADMLogin(String login); 
 	public Administrador buscaADMLogin(String login);
+	public ArrayList<Administrador> retornaListaAdm();
 	
 }

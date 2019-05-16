@@ -1,5 +1,7 @@
 package Negocio;
 
+import java.util.ArrayList;
+
 import Basicas.Disciplina;
 import Repositorio.IRepositorioDisciplina;
 import Repositorio.RepositorioDisciplinaArray;
@@ -25,6 +27,9 @@ public class ControleDisciplina {
 	}
 	public void listaDisciplina() {
 		repDisciplina.listaDisciplinas();
+	}
+	public ArrayList<Disciplina> retornaListaDisciplina(){
+		return retornaListaDisciplina();
 	}
 
 }

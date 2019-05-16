@@ -1,5 +1,7 @@
 package Repositorio;
 
+import java.util.ArrayList;
+
 import Basicas.Disciplina;
 
 public class RepositorioDisciplinaArray implements IRepositorioDisciplina{
@@ -98,9 +100,16 @@ public class RepositorioDisciplinaArray implements IRepositorioDisciplina{
 	}
 
 	@Override
-	public Disciplina[] retornaListaDisciplina() {
+	public ArrayList<Disciplina> retornaListaDisciplina() {
 		// TODO Auto-generated method stub
-		return null;
+		
+		ArrayList<Disciplina> listaDisciplina = new ArrayList<Disciplina>();
+		
+		for (int i = 0; i < index; i++) {
+			listaDisciplina.add(this.listaDisciplina[i]); 
+		}
+		
+		return listaDisciplina;
 	}
 
 }

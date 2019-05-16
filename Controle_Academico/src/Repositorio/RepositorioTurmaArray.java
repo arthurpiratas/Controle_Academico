@@ -1,9 +1,12 @@
 package Repositorio;
 
+import java.util.ArrayList;
+
 import Basicas.Aluno;
 import Basicas.Disciplina;
 import Basicas.Professor;
 import Basicas.Turma;
+import Negocio.ControleAluno;
 
 public class RepositorioTurmaArray implements IRepositorioTurma{
 	
@@ -88,7 +91,7 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 		for (int i = 0; i < index; i++) {
 			System.out.println("Nome: " + listaTurma[i].getNome() + " Quantidade: " + listaTurma[i].getQtdAlunoTurma());
 			for (int j = 0; j < listaTurma[i].getQtdAlunoTurma(); j++) {
-				System.out.println("Nome: " + listaTurma[i].getAlunoTurma()[i]);
+				System.out.println("Matrícula: " + listaTurma[i].getAlunoTurma()[j]);
 			}
 		}
 		
@@ -102,24 +105,7 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 		return null;
 	}
 
-	@Override
-	public Turma[] retornaListaTurmaAluno(Aluno aluno) {
-		// TODO Auto-generated method stub
-		
-		Turma listaTurmaAluno[] = new Turma[100]; 
-		
-		for (int i = 0; i < listaTurmaAluno.length; i++) {
-			listaTurmaAluno[i] = null; 
-		}
-		
-		for (int i = 0; i < index; i++) {
-			for (int j = 0; j < listaTurma[i].getQtdAlunoTurma(); j++) {
-				listaTurmaAluno[j] = listaTurma[i];
-			}
-		}
-		
-		return listaTurmaAluno;
-	}
+	
 	
 	// Verificação se uma turma possui professores ou disciplina em caso de exclusão de um professor ou disciplina que estão em uma turma
 
@@ -170,6 +156,103 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 				removeTurma(listaTurma[i].getNome());
 			}
 		}
+	}
+	
+	
+	@Override
+	public ArrayList<Turma> retornaListaTurmaAluno(Aluno aluno) {
+		// TODO Auto-generated method stub
+		
+		ArrayList<Turma> listaTurmaAluno = new ArrayList<Turma>(); 
+		
+			for (int i = 0; i < index; i++) {
+			for (int j = 0; j < this.listaTurma[i].getQtdAlunoTurma(); j++) {
+				if(this.listaTurma[i].getAlunoTurma()[j].equals(aluno.getMatricula())) {
+					listaTurmaAluno.add(this.listaTurma[i]);
+				}
+				
+			}
+		}
+		
+		return listaTurmaAluno;
+	}
+
+	@Override
+	public ArrayList<Turma> RetornaDisponibilidadeTurmasAluno() {
+		// TODO Auto-generated method stub
+		
+		ArrayList<Turma> listaTurma = new ArrayList<Turma>();
+		
+		for (int i = 0; i < index; i++) {
+			if(this.listaTurma[i].getQtdAlunoTurma() < this.listaTurma[i].getCapacidadeDaTurma()) {
+				listaTurma.add(this.listaTurma[i]); 
+			}
+		}
+		
+		return listaTurma;
+	}
+
+	@Override
+	public ArrayList<Turma> retornaListaTurmaProfessor(Professor professor) {
+		// TODO Auto-generated method stub
+		
+		ArrayList<Turma> listaTurma = new ArrayList<Turma>();
+		
+		for (int i = 0; i < index; i++) {
+			if(this.listaTurma[i].getProfessor().getId() == professor.getId()) {
+				listaTurma.add(this.listaTurma[i]);
+			}
+		}
+		
+		return listaTurma;
+	}
+
+	@Override
+	public ArrayList<Turma> retornaListaTurmaSemProfessor() {
+		// TODO Auto-generated method stub
+
+		ArrayList<Turma> listaTurma = new ArrayList<Turma>();
+		
+		for (int i = 0; i < index; i++) {
+			if(this.listaTurma[i].getProfessor() == null) {
+				listaTurma.add(this.listaTurma[i]);
+			}
+		}
+		
+		return listaTurma;
+		
+	}
+
+	@Override
+	public ArrayList<Turma> retornaListaPorDisciplina(Disciplina disciplina) {
+		// TODO Auto-generated method stub
+		ArrayList<Turma> listaTurma = new ArrayList<Turma>();
+		
+		for (int i = 0; i < index; i++) {
+			if(this.listaTurma[i].getDisciplina().getcodigo() == disciplina.getcodigo()) {
+				listaTurma.add(this.listaTurma[i]);
+			}
+		}
+		
+		return listaTurma;
+	}
+
+	@Override
+	public ArrayList<Aluno> retornaAlunoNaTurma(ControleAluno ctrAluno, int idTurma) {
+		// TODO Auto-generated method stub
+		
+		ArrayList<Aluno> listaAluno = new ArrayList<Aluno>(); 
+		
+		for (int i = 0; i < this.index; i++) {
+			if(listaTurma[i].getId() == idTurma) {
+				for (int j = 0; j < listaTurma[i].getQtdAlunoTurma(); j++) {
+					Aluno aluno = ctrAluno.buscaAluno(listaTurma[i].getAlunoTurma()[j]);
+					listaAluno.add(aluno);
+				}
+			}
+		}
+		
+		return listaAluno;
 	}
 
 }

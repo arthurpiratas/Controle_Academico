@@ -1,5 +1,7 @@
 package Negocio;
 
+import java.util.ArrayList;
+
 import Basicas.Aluno;
 import Basicas.Disciplina;
 import Basicas.Professor;
@@ -41,6 +43,20 @@ public class ControleTurma {
 	public void excluiTurmaPorProfessor(int idProfessor) {
 		repTurma.excluiTurmaPorProfessor(idProfessor);
 	}
+	
+	public boolean verificaCapacidadeTurma(Turma turma) {
+		if(turma.getCapacidadeDaTurma() >= turma.getQtdAlunoTurma()) {
+			return true; 
+		}
+		return false; 
+	}
+	
+	
+	/*public Turma[] RetornaDisponibilidadeTurmaAluno() {
+		return ;
+		
+	}*/
+	
 	public boolean verificaAlunoEmTurma(Turma turma, Aluno aluno) {
 		
 		for (int i = 0; i < turma.getQtdAlunoTurma(); i++) {
@@ -64,7 +80,7 @@ public class ControleTurma {
 		
 		String alunos[] = turma.getAlunoTurma(); 
 		
-		for (int i = 0; i < turma.getCapacidadeDaTurma(); i++) {
+		for (int i = 0; i < turma.getQtdAlunoTurma(); i++) {
 			if(alunos[i].equals(aluno.getMatricula())) {
 				alunos[turma.getCapacidadeDaTurma()] = alunos[turma.getCapacidadeDaTurma()-1];
 				turma.setCapacidadeDaTurma(turma.getCapacidadeDaTurma()-1);
@@ -72,6 +88,22 @@ public class ControleTurma {
 		}
 		
 		turma.setAlunoTurma(alunos);
+	}
+	
+	public ArrayList<Turma> retornaListaTurmaAluno(Aluno aluno){
+		return repTurma.retornaListaTurmaAluno(aluno);
+	}
+	public ArrayList<Turma> retornaListaTurmaProfessor(Professor professor){
+		return repTurma.retornaListaTurmaProfessor(professor);
+	}
+	public ArrayList<Turma> retornaListaTurmaSemProfessor(){
+		return repTurma.retornaListaTurmaSemProfessor();
+	}
+	public ArrayList<Turma> retornaDisponibilidadeTurmasAluno(){
+		return repTurma.RetornaDisponibilidadeTurmasAluno();
+	}	
+	public ArrayList<Aluno> retornaAlunoNaTurma(ControleAluno ctrAluno, int idTurma){
+		return repTurma.retornaAlunoNaTurma(ctrAluno, idTurma);
 	}
 	
 }

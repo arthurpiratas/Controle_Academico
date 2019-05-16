@@ -1,5 +1,7 @@
 package Negocio;
 
+import java.util.ArrayList;
+
 import Basicas.Professor;
 import Repositorio.IRepositorioProfessor;
 import Repositorio.RepositorioProfessorArray;
@@ -26,6 +28,15 @@ public class ControleProfessor {
 	public void listaProfessor() {
 		repProfessor.listaProfessors();
 	}
+	
+	public boolean verificaProfessorExiste(String nome) {
+		return repProfessor.verificaProfessorExiste(nome);
+	}
+	
+	public boolean verificaProfessorExiste(int id) {
+		return repProfessor.verificaProfessorExiste(id);
+	}
+	
 	public boolean verificaLoginProfessor(String login, String senha) {
 		
 		if(repProfessor.verifiaProfessorLogin(login)) {
@@ -56,6 +67,10 @@ public class ControleProfessor {
 		}
 		
 		return professor; 
+	}
+	
+	public ArrayList<Professor> retornaListaProfessor(){
+		return retornaListaProfessor();
 	}
 
 }
