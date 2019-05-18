@@ -6,47 +6,44 @@ public class Turma {
 	
 	private int id; 
 	private String nome; 
-	private Date dataDeNascimento; 
-	private Professor professor; 
-	private Disciplina disciplina; 
+	private int professor_ID; 
+	private int disciplina_COD; 
 	private int capacidadeDaTurma;
 	private String alunoTurma[]; 
 	private int qtdAlunoTurma; 
 	
 	
-	public Turma(int id, String nome, Date dataDeNascimento, Professor professor, int capacidadeDaTurma, Disciplina disciplina) {
+	public Turma(int id, String nome, int professor, int capacidadeDaTurma, int disciplina) {
 		
 		this.id = id;
 		this.nome = nome;
-		this.dataDeNascimento = dataDeNascimento;
-		this.professor = professor;
+		this.professor_ID = professor;
 		this.capacidadeDaTurma = capacidadeDaTurma;
 		this.alunoTurma = new String[capacidadeDaTurma]; 
 		this.qtdAlunoTurma = 0; 
-		this.disciplina = disciplina; 
+		this.disciplina_COD = disciplina; 
 	}
 	
-	public Turma(int id, String nome, Date dataDeNascimento, int capacidadeDaTurma, Disciplina disciplina) {
+	public Turma(int id, String nome, int capacidadeDaTurma, int disciplina) {
 		
 		this.id = id;
 		this.nome = nome;
-		this.dataDeNascimento = dataDeNascimento;
-		this.professor = null; 
+		this.professor_ID = -1; 
 		this.capacidadeDaTurma = capacidadeDaTurma;
 		this.alunoTurma = new String[capacidadeDaTurma]; 
 		this.qtdAlunoTurma = 0; 
-		this.disciplina = disciplina; 
+		this.disciplina_COD = disciplina; 
 	}
 	
 	
 	
-	public Disciplina getDisciplina() {
-		return disciplina;
+	public int getDisciplina() {
+		return disciplina_COD;
 	}
 
 
-	public void setDisciplina(Disciplina disciplina) {
-		this.disciplina = disciplina;
+	public void setDisciplina(int disciplina) {
+		this.disciplina_COD = disciplina;
 	}
 
 
@@ -82,17 +79,11 @@ public class Turma {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getDataDeNascimento() {
-		return dataDeNascimento;
+	public int getProfessor() {
+		return professor_ID;
 	}
-	public void setDataDeNascimento(Date dataDeNascimento) {
-		this.dataDeNascimento = dataDeNascimento;
-	}
-	public Professor getProfessor() {
-		return professor;
-	}
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
+	public void setProfessor(int professor) {
+		this.professor_ID = professor;
 	}
 	public int getCapacidadeDaTurma() {
 		return capacidadeDaTurma;

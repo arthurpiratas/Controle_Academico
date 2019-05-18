@@ -13,18 +13,23 @@ public class ControleProfessor {
 	public void insereProfessor(Professor professor) {
 		repProfessor.insereProfessor(professor);
 	}
+	
 	public void alteraProfessor(Professor professor) {
 		repProfessor.alteraProfessor(professor);
 	}
+	
 	public void removeProfessor(int id) {
 		repProfessor.removeProfessor(id);
 	}
+	
 	public Professor buscaProfessor(int id) {
 		return repProfessor.buscaProfessor(id); 
 	}
+	
 	public Professor buscaProfessor(String nome) {
 		return repProfessor.buscaProfessor(nome); 
 	}
+	
 	public void listaProfessor() {
 		repProfessor.listaProfessors();
 	}
@@ -49,6 +54,7 @@ public class ControleProfessor {
 		
 		return false; 
 	}
+	
 	public boolean verificaLoginProfessorExiste(String login) {
 		
 		if(repProfessor.verifiaProfessorLogin(login)) {
@@ -71,6 +77,10 @@ public class ControleProfessor {
 	
 	public ArrayList<Professor> retornaListaProfessor(){
 		return retornaListaProfessor();
+	}
+	
+	public int retornaProximoIdprofessor() {
+		return repProfessor.retornaProximoID();
 	}
 
 }

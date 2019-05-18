@@ -18,4 +18,5 @@ public interface IRepositorioProfessor {
 	public ArrayList<Professor> retornaListaProfessor(); 
 	public boolean verifiaProfessorLogin(String login); 
 	public Professor buscaProfessorLogin(String login);
+	public int retornaProximoID();
 }

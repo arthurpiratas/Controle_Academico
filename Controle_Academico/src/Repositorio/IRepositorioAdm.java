@@ -15,5 +15,6 @@ public interface IRepositorioAdm {
 	public boolean verifiaADMLogin(String login); 
 	public Administrador buscaADMLogin(String login);
 	public ArrayList<Administrador> retornaListaAdm();
+	public int retornaProximoID();
 	
 }

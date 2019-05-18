@@ -14,5 +14,7 @@ public interface IRepositorioAluno {
 	public ArrayList<Aluno> retornaListaAluno(); 
 	public boolean verifiaAlunoLogin(String login); 
 	public Aluno buscaAlunoLogin(String login);
+	public int retornaProximoID();
+	public String retornaMatricula(String periodo);
 	
 }

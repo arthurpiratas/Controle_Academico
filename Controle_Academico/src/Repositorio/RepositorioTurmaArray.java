@@ -45,25 +45,22 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 		// TODO Auto-generated method stub
 		for (int i = 0; i < index; i++) {
 			if(listaTurma[i].getNome().equals(nome)) {
-				if(index == 1) {
-					listaTurma[i] = null; 
-					index -= 1; 
-				}else {
-					listaTurma[i] = listaTurma[index-1]; 
-					index -= 1; 
-				}
+					
+				listaTurma[i] = listaTurma[index-1]; 
+				index -= 1; 
+				
 			}
 		}
 	}
 
 	@Override
-	public Turma buscaTurma(String nome) {
+	public Turma buscaTurma(int id) {
 		// TODO Auto-generated method stub
 		
 		Turma turma = null; 
 		
 		for (int i = 0; i < index; i++) {
-			if(listaTurma[i].getNome().equals(nome)) {
+			if(listaTurma[i].getId() == id) {
 				turma = listaTurma[i]; 
 			}
 		}
@@ -89,7 +86,7 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 		// TODO Auto-generated method stub
 		
 		for (int i = 0; i < index; i++) {
-			System.out.println("Nome: " + listaTurma[i].getNome() + " Quantidade: " + listaTurma[i].getQtdAlunoTurma());
+			System.out.println("Codigo: " + listaTurma[i].getId() +" Nome: " + listaTurma[i].getNome() + " Quantidade: " + listaTurma[i].getQtdAlunoTurma() + " Código disciplina: " + listaTurma[i].getDisciplina() + " Professor: " + listaTurma[i].getProfessor());
 			for (int j = 0; j < listaTurma[i].getQtdAlunoTurma(); j++) {
 				System.out.println("Matrícula: " + listaTurma[i].getAlunoTurma()[j]);
 			}
@@ -114,7 +111,7 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 		// TODO Auto-generated method stub
 		
 		for (int i = 0; i < index; i++) {
-			if(listaTurma[i].getDisciplina().getcodigo() == disciplina.getcodigo()) {
+			if(listaTurma[i].getDisciplina() == disciplina.getcodigo()) {
 				return true; 
 			}
 		}
@@ -127,7 +124,7 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 		// TODO Auto-generated method stub
 		
 		for (int i = 0; i < index; i++) {
-			if(listaTurma[i].getProfessor().getId() == professor.getId()) {
+			if(listaTurma[i].getProfessor() == professor.getId()) {
 				return true; 
 			}
 		}
@@ -141,7 +138,7 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 		// TODO Auto-generated method stub
 		
 		for (int i = 0; i < index; i++) {
-			if(listaTurma[i].getDisciplina().getcodigo() == codigo) {
+			if(listaTurma[i].getDisciplina() == codigo) {
 				removeTurma(listaTurma[i].getNome());
 			}
 		}
@@ -152,7 +149,7 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 	public void excluiTurmaPorProfessor(int idProfessor) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < index; i++) {
-			if(listaTurma[i].getDisciplina().getcodigo() == idProfessor) {
+			if(listaTurma[i].getDisciplina()  == idProfessor) {
 				removeTurma(listaTurma[i].getNome());
 			}
 		}
@@ -199,7 +196,7 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 		ArrayList<Turma> listaTurma = new ArrayList<Turma>();
 		
 		for (int i = 0; i < index; i++) {
-			if(this.listaTurma[i].getProfessor().getId() == professor.getId()) {
+			if(this.listaTurma[i].getProfessor()  == professor.getId()) {
 				listaTurma.add(this.listaTurma[i]);
 			}
 		}
@@ -214,7 +211,7 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 		ArrayList<Turma> listaTurma = new ArrayList<Turma>();
 		
 		for (int i = 0; i < index; i++) {
-			if(this.listaTurma[i].getProfessor() == null) {
+			if(this.listaTurma[i].getProfessor() == -1) {
 				listaTurma.add(this.listaTurma[i]);
 			}
 		}
@@ -229,7 +226,7 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 		ArrayList<Turma> listaTurma = new ArrayList<Turma>();
 		
 		for (int i = 0; i < index; i++) {
-			if(this.listaTurma[i].getDisciplina().getcodigo() == disciplina.getcodigo()) {
+			if(this.listaTurma[i].getDisciplina() == disciplina.getcodigo()) {
 				listaTurma.add(this.listaTurma[i]);
 			}
 		}
@@ -253,6 +250,40 @@ public class RepositorioTurmaArray implements IRepositorioTurma{
 		}
 		
 		return listaAluno;
+	}
+
+	@Override
+	public int retornaProximoID() {
+		// TODO Auto-generated method stub
+		
+		int cont = 0; 
+		
+		for (int i = 0; i < index; i++) {
+			if(cont <=  listaTurma[i].getId()) {
+				cont =  (listaTurma[i].getId() + 1);
+			}
+			 
+		}
+		
+		return cont; 
+	}
+
+	@Override
+	public boolean verificaAlunoMatriculadoTurma(int idTurma, Aluno aluno) {
+		
+		ArrayList<Turma> listaTurmaAluno = retornaListaTurmaAluno(aluno);
+		
+		for (int i = 0; i < listaTurmaAluno.size(); i++) {
+			if(listaTurmaAluno.get(i).getId() == idTurma) {
+				for (int j = 0; j < listaTurmaAluno.get(i).getQtdAlunoTurma(); j++) {
+					if(listaTurmaAluno.get(i).getAlunoTurma()[j].equals(aluno.getMatricula())) {
+						return true;
+					}
+				}
+			}	
+		}
+
+		return false;
 	}
 
 }

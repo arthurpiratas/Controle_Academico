@@ -49,14 +49,9 @@ public class RepositorioProfessorArray implements IRepositorioProfessor{
 		
 		for (int i = 0; i < index; i++) {
 			if(listaProfessor[i].getId() == id) {
-				if(index == 1) {
-					listaProfessor[i] = null; 
-					index -= 1; 
-				}else {
-					listaProfessor[i] = listaProfessor[index-1];
-					index -= 1;
-				}
-				 
+					
+				listaProfessor[i] = listaProfessor[index-1];
+				index -= 1;				 
 			}
 		}
 		
@@ -164,6 +159,22 @@ public class RepositorioProfessorArray implements IRepositorioProfessor{
 		}
 		
 		return professor;
+	}
+
+	@Override
+	public int retornaProximoID() {
+		// TODO Auto-generated method stub
+		int cont = 0; 
+		
+		for (int i = 0; i < index; i++) {
+			
+			if(cont <=  listaProfessor[i].getId()) {
+				cont =  (listaProfessor[i].getId() + 1);
+			}
+			 
+		}
+		
+		return cont; 
 	}
 
 	

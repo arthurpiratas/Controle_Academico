@@ -46,12 +46,10 @@ public class RepositorioRendimentoEscolarArray implements IRepositorioRendimento
 		// TODO Auto-generated method stub
 		for (int i = 0; i < index; i++) {
 			if(listaRendimentoEscola[i].getAluno().getMatricula() == aluno.getMatricula() && listaRendimentoEscola[i].getTurma().getId() == turma.getId()) {
-				if(index == 1) {
-					listaRendimentoEscola[i] = null; 
-					index -= 1; 
-				}else {
-					listaRendimentoEscola[i] = listaRendimentoEscola[index-1]; 
-				}
+					
+				listaRendimentoEscola[i] = listaRendimentoEscola[index-1]; 
+				index -= 1;
+				
 			}
 		}
 	}

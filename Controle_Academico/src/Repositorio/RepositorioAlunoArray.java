@@ -48,13 +48,9 @@ public class RepositorioAlunoArray implements IRepositorioAluno{
 		
 		for (int i = 0; i < index; i++) {
 			if(listaAluno[i].getMatricula().equals(matricula)) {
-				if(index == 1) {
-					listaAluno[i] = null; 
-					index -= 1; 
-				}else {
 					listaAluno[i] = listaAluno[index-1]; 
 					index -= 1; 
-				}
+				
 			}
 		}
 		
@@ -138,6 +134,39 @@ public class RepositorioAlunoArray implements IRepositorioAluno{
 		}
 		
 		return aluno;
+	}
+
+
+
+	@Override
+	public int retornaProximoID() {
+		// TODO Auto-generated method stub
+		
+		int cont = 0; 
+		
+		for (int i = 0; i < index; i++) {
+			
+			if(cont <=  listaAluno[i].getId()) {
+				cont =  (listaAluno[i].getId() + 1);
+			}
+			 
+		}
+		
+		return cont; 
+
+	}
+
+
+
+	@Override
+	public String retornaMatricula(String periodo) {
+		// TODO Auto-generated method stub
+		
+		String matricula = "";
+		
+		matricula = periodo + retornaProximoID();
+		
+		return matricula;
 	}
 
 

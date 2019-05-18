@@ -187,13 +187,101 @@ public class teste {
 		
 		*/
 		
+		/*
+		 
+		Teste Turma 
+		
 		ControleAluno ctrAluno = new ControleAluno(); 
 		ControleDisciplina ctrDisciplina = new ControleDisciplina(); 
 		ControleProfessor ctrProfessor = new ControleProfessor(); 
 		ControleTurma ctrTurma = new ControleTurma(); 
 		
-		Turma turma, turma1, turma2; 
+		Turma turma, turma2, turma3, turma4; 
+		Aluno aluno, aluno2, aluno3; 
+		Professor prof, prof2; 
+		Disciplina disc, disc2; 
 		
+		disc = new Disciplina(0, "Matemática", "Dedo no cu e putaria");
+		disc2 = new Disciplina(1, "Português", "Salvar o país"); 
+		aluno = new Aluno(12346, "Arthur", null, 2, "arthur1", "1234", "1");
+		aluno2 = new Aluno(1235, "jez", null, 1, "jez", "147", "2"); 
+		prof = new Professor(0, "Arthur", "Professor", null, "arthur123", "4545"); 
+		prof2 = new Professor(1, "Luiz", "Professor", null, "arthur127", "45458"); 
+		aluno3 = new Aluno(12357, "aqyui", null, 1, "jez", "147", "3"); 
+		
+		turma = new Turma(ctrTurma.retornaProximoIdTurma(), "TM01", prof.getId(), 40, disc.getcodigo());
+		
+		
+		
+		ctrTurma.insereTurma(turma);
+		
+		ctrTurma.listaTurma();
+		
+		turma2 = new Turma(ctrTurma.retornaProximoIdTurma(), "TM02", prof2.getId(), 40, disc2.getcodigo());
+		
+		ctrTurma.insereTurma(turma2);
+		
+		System.out.println(" ");
+		
+		ctrTurma.listaTurma();
+		
+		ctrTurma.removeTurma(turma.getNome());
+		
+		System.out.println(" ");
+		
+		ctrTurma.listaTurma();
+		
+		
+		
+		turma3 = ctrTurma.buscaTurma(turma.getId());
+		
+		turma3.setDisciplina(disc2.getcodigo());
+		
+		ctrTurma.alteraTurma(turma3);
+		
+		System.out.println(" ");
+		
+		ctrTurma.listaTurma();
+		
+		ctrTurma.insereAlunoEmTurma(turma, aluno);
+		ctrTurma.insereAlunoEmTurma(turma, aluno2);
+		ctrTurma.insereAlunoEmTurma(turma, aluno3);
+		
+		System.out.println(" ");
+		
+		ctrTurma.listaTurma();
+		
+		ctrTurma.removeAlunoEmTurma(turma, aluno);
+		
+		
+		turma4 = ctrTurma.buscaTurma(turma.getId());
+		
+		System.out.println(" ");
+		
+		ctrTurma.listaTurma();
+		
+		ctrTurma.insereAlunoEmTurma(turma2, aluno);
+		ctrTurma.insereAlunoEmTurma(turma2, aluno2);
+		
+		
+		
+		System.out.println(" ");
+		
+		ctrTurma.listaTurma();
+		
+		if(ctrTurma.verificaAlunoEmTurma(turma, aluno3)) {
+			System.out.println("já matriculado");
+		}else {
+			System.out.println("não matriculado");
+		}
+		if (ctrTurma.verificaAlunoMatriculadoTurma(turma.getId(), aluno3)) {
+			System.out.println("Já matriculado");
+		}else {
+			System.out.println("não matriculado");
+		}
+		
+		 
+		*/
 		
 		
 	}

@@ -13,18 +13,23 @@ public class ControleADM {
 	public void insereADM(Administrador adm) {
 		repAdm.insereADM(adm);
 	}
+	
 	public void alteraADM(Administrador adm) {
 		repAdm.alteraADM(adm);
 	}
+	
 	public void removeADM(int id) {
 		repAdm.removeADM(id);
 	}
+	
 	public Administrador buscaADM(String nome) {
 		return repAdm.buscaADM(nome);
 	}
+	
 	public boolean verificaADMExise(String nome) {
 		return repAdm.verificaADMExise(nome);
 	}
+	
 	public void listaADM() {
 		repAdm.listaADM();
 	}
@@ -45,6 +50,7 @@ public class ControleADM {
 		
 		return false; 
 	}
+	
 	public Administrador buscaADMLogin(String login, String senha) {
 		Administrador adm = null;
 		
@@ -57,6 +63,10 @@ public class ControleADM {
 	
 	public ArrayList<Administrador> retornaListaAdm(){
 		return repAdm.retornaListaAdm();
+	}
+	
+	public int retornaProximoIdADM() {
+		return repAdm.retornaProximoID();
 	}
 
 }

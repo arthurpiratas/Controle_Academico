@@ -44,13 +44,10 @@ public class RepositorioDisciplinaArray implements IRepositorioDisciplina{
 		
 		for (int i = 0; i < index; i++) {
 			if(listaDisciplina[i].getcodigo() == codigo) {
-				if(index == 1) {
-					listaDisciplina[i] = null; 
-					index -= 1; 
-				}else {
-					listaDisciplina[i] = listaDisciplina[index-1];
-					index -= 1;
-				}
+					
+				listaDisciplina[i] = listaDisciplina[index-1];
+				index -= 1;
+				
 				 
 			}
 		}
@@ -110,6 +107,22 @@ public class RepositorioDisciplinaArray implements IRepositorioDisciplina{
 		}
 		
 		return listaDisciplina;
+	}
+
+	@Override
+	public int retornaProximoID() {
+		// TODO Auto-generated method stub
+		int cont = 0; 
+		
+		for (int i = 0; i < index; i++) {
+			
+			if(cont <=  listaDisciplina[i].getcodigo()) {
+				cont =  (listaDisciplina[i].getcodigo() + 1);
+			}
+			 
+		}
+		
+		return cont; 
 	}
 
 }

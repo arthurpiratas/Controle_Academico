@@ -45,13 +45,10 @@ public class RepositorioAdmArray implements IRepositorioAdm{
 		// TODO Auto-generated method stub
 		for (int i = 0; i < index; i++) {
 			if(listaADM[i].getId() == id) {
-				if(this.index == 1) {
-					this.listaADM[i] = null; 
-					this.index -= 1;
-				}else {
-					this.listaADM[i] = listaADM[index-1]; 
-					this.index -= 1; 
-				}
+				
+				this.listaADM[i] = listaADM[index-1]; 
+				this.index -= 1;
+				
 			}	
 		}
 	}
@@ -135,5 +132,24 @@ public class RepositorioAdmArray implements IRepositorioAdm{
 		
 		return listaADM;
 	}
+
+	@Override
+	public int retornaProximoID() {
+		// TODO Auto-generated method stub
+		
+		int cont = 0; 
+		
+		for (int i = 0; i < index; i++) {
+			
+			if(cont <=  listaADM[i].getId()) {
+				cont =  (listaADM[i].getId() + 1 );
+			}
+			 
+		}
+		
+		return cont; 
+	}
+		
+	
 
 }

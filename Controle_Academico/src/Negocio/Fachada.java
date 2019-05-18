@@ -55,7 +55,7 @@ public class Fachada {
 		ctrAdm.listaADM();
 	}
 	
-	public boolean verificaLoginExiste(String login) {
+	public boolean verificaLoginAdmExiste(String login) {
 		return ctrAdm.verificaLoginExiste(login);
 	}
 	
@@ -69,6 +69,10 @@ public class Fachada {
 	
 	public ArrayList<Administrador> retornaListaAdm(){
 		return ctrAdm.retornaListaAdm();
+	}
+	
+	public int retornaProximoIdADM() {
+		return ctrAdm.retornaProximoIdADM();
 	}
 	
 	public void insereAluno(Aluno aluno) {
@@ -111,6 +115,14 @@ public class Fachada {
 		return ctrAluno.retornaListaAluno();
 	}
 	
+	public int retornaProximoIDAluno() {
+		return ctrAluno.retornaProximoIDAluno();
+	}
+	
+	public String retornaMatricula(String periodo) {
+		return ctrAluno.retornaMatricula(periodo);
+	}
+	
 	public void insereDisciplina(Disciplina disciplina) {
 		ctrDisciplina.insereDisciplina(disciplina);
 	}
@@ -137,6 +149,10 @@ public class Fachada {
 	
 	public ArrayList<Disciplina> retornaListaDisciplina(){
 		return ctrDisciplina.retornaListaDisciplina();
+	}
+	
+	public int retornaProximoCodigoDisciplina() {
+		return ctrDisciplina.retornaProximoCodigoDisciplina();
 	}
 	
 	public void insereProfessor(Professor professor) {
@@ -183,7 +199,95 @@ public class Fachada {
 		return ctrProfessor.retornaProfessorLogado(login, senha);
 	}
 	
-	ArrayList<Professor> retornaListaProfessor() {
+	public ArrayList<Professor> retornaListaProfessor() {
 		return ctrProfessor.retornaListaProfessor();
+	}
+	
+	public int retornaProximoIdProfessor() {
+		return ctrProfessor.retornaProximoIdprofessor();
+	}
+	
+	public void insereTurma(Turma turma) {
+		ctrturma.insereTurma(turma);
+	}
+	
+	public void alteraTurma(Turma turma) {
+		ctrturma.alteraTurma(turma);
+	}
+	
+	public void removeTurma(String nome) {
+		ctrturma.removeTurma(nome);
+	}
+	
+	public Turma buscaTurma(int id) {
+		return ctrturma.buscaTurma(id);
+	}
+	
+	public boolean verificaTurmaExiste(String nome) {
+		return verificaTurmaExiste(nome);
+	}
+	
+	public void listaTurma() {
+		ctrturma.listaTurma();
+	}
+	
+	public boolean verificaDesciplinaPossuiTurma(Disciplina disciplina) {
+		return ctrturma.verificaDesciplinaPossuiTurma(disciplina);
+	}
+	
+	public boolean verificaProfessorPossuiTurma(Professor professor) {
+		return ctrturma.verificaProfessorPossuiTurma(professor);
+	}
+	
+	public void excluiTurmaPorDisciplina(int codigo) {
+		ctrturma.excluiTurmaPorDisciplina(codigo);
+	}
+	
+	public void excluiTurmaPorProfessor(int idProfessor) {
+		ctrturma.excluiTurmaPorProfessor(idProfessor);
+	}
+	
+	public boolean verificaCapacidadeTurma(Turma turma) {
+		return ctrturma.verificaCapacidadeTurma(turma);
+	}
+	
+	public boolean verificaAlunoEmTurma(Turma turma, Aluno aluno) {
+		return ctrturma.verificaAlunoEmTurma(turma, aluno);
+	}
+	
+	public void insereAlunoEmTurma(Turma turma, Aluno aluno) {
+		ctrturma.insereAlunoEmTurma(turma, aluno);
+	}
+	
+	public void removeAlunoEmTurma(Turma turma, Aluno aluno) {
+		ctrturma.removeAlunoEmTurma(turma, aluno);
+	}
+	
+	public ArrayList<Turma> retornaListaTurmaAluno(Aluno aluno){
+		return ctrturma.retornaListaTurmaAluno(aluno);
+	}
+	
+	public ArrayList<Turma> retornaListaTurmaProfessor(Professor professor){
+		return ctrturma.retornaListaTurmaProfessor(professor);
+	}
+	
+	public ArrayList<Turma> retornaListaTurmaSemProfessor(){
+		return ctrturma.retornaListaTurmaSemProfessor();
+	}
+	
+	public ArrayList<Turma> retornaDisponibilidadeTurmasAluno(){
+		return ctrturma.retornaDisponibilidadeTurmasAluno();
+	}
+	
+	public ArrayList<Aluno> retornaAlunoNaTurma(ControleAluno ctrAluno, int idTurma){
+		return ctrturma.retornaAlunoNaTurma(ctrAluno, idTurma);
+	}
+	
+	public int retornaProximoIdTurma() {
+		return ctrturma.retornaProximoIdTurma();
+	}
+	
+	public boolean verificaAlunoMatriculadoTurma(int idTurma, Aluno aluno) {
+		return ctrturma.verificaAlunoMatriculadoTurma(idTurma, aluno);
 	}
 }

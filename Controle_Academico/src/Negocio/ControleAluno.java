@@ -72,5 +72,13 @@ public class ControleAluno {
 	public ArrayList<Aluno> retornaListaAluno(){
 		return repAluno.retornaListaAluno();
 	}
+	
+	public int retornaProximoIDAluno() {
+		return repAluno.retornaProximoID(); 
+	}
+	
+	public String retornaMatricula(String periodo) {
+		return repAluno.retornaMatricula(periodo); 
+	}
 
 }

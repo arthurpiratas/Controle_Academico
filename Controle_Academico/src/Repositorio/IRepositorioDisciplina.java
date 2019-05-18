@@ -13,5 +13,6 @@ public interface IRepositorioDisciplina {
 	public boolean verificaDisciplinaExise(String nome); 
 	public void listaDisciplinas(); 
 	public ArrayList<Disciplina> retornaListaDisciplina(); 
+	public int retornaProximoID();
 	
 }

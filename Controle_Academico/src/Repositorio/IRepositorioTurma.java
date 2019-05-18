@@ -13,7 +13,7 @@ public interface IRepositorioTurma {
 	public void insereTurma(Turma turma); 
 	public void alteraTurma(Turma turma); 
 	public void removeTurma(String nome); 
-	public Turma buscaTurma(String nome); 
+	public Turma buscaTurma(int id); 
 	public boolean verificaTurmaExise(String nome); 
 	public void listaTurma(); 
 	public Turma[] retornaListaTurma(); 
@@ -27,6 +27,9 @@ public interface IRepositorioTurma {
 	public ArrayList<Turma> RetornaDisponibilidadeTurmasAluno();
 	public ArrayList<Turma> retornaListaPorDisciplina(Disciplina disciplina); 
 	public ArrayList<Aluno> retornaAlunoNaTurma(ControleAluno ctrAluno, int idTurma); 
+	public int retornaProximoID();
+	public boolean verificaAlunoMatriculadoTurma (int idTurma, Aluno aluno);
+	
 	
 
 }
